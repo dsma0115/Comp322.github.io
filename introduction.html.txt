@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+</head>
+<body>
+    <h1>More About Me</h1>
+
+    <!-- Table with skills, abilities, education, and training -->
+    <table border="1">
+        <tr>
+            <th>Category</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>Skills</td>
+            <td>Web Development, Programming, Data Analysis</td>
+        </tr>
+        <tr>
+            <td>Abilities</td>
+            <td>Problem Solving, Teamwork, Communication</td>
+        </tr>
+        <tr>
+            <td>Education</td>
+            <td>Bachelor of Science in Computer Science</td>
+        </tr>
+        <tr>
+            <td>Training</td>
+            <td>Certified Web Developer, Data Science Bootcamp</td>
+        </tr>
+    </table>
+
+    <!-- Images -->
+    <h2>Gallery</h2>
+    <img src="img/img2.jpg" alt="Skill-related image" width="300">
+    <img src="img/img3.jpg" alt="Training-related image" width="300">
+
+    <!-- Link to go back to index.html -->
+    <p><a href="index.html">Back to My Bio</a></p>
+</body>
+</html>
