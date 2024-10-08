@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let username = document.forms["userForm"]["username"].value;
+            let email = document.forms["userForm"]["email"].value;
+            let phone = document.forms["userForm"]["phone"].value;
+            let password = document.forms["userForm"]["password"].value;
+            let confirmPassword = document.forms["userForm"]["confirmPassword"].value;
+            let usernamePattern = /^[a-z0-9]{4,12}$/;
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu)$/;
+            let phonePattern = /^\(\d{3}\)-\d{3}-\d{4}$/;
+            let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[_\W]).{8,}$/;
+
+            if (!usernamePattern.test(username)) {
+                alert("Username must be 4-12 characters long and only contain lowercase letters or numbers.");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email (must contain @ and end with .com, .net, .org, or .edu).");
+                return false;
+            }
+
+            if (!phonePattern.test(phone)) {
+                alert("Phone number must be in the format (123)-456-7890.");
+                return false;
+            }
+
+            if (!passwordPattern.test(password)) {
+                alert("Password must be at least 8 characters long, contain uppercase and lowercase letters, numbers, and at least one special character.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Registration Form</h2>
+    <form name="userForm" onsubmit="return validateForm()" method="post">
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" name="phone" placeholder="(123)-456-7890" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+        <br><br>
+
+        <label for="age">Age Group:</label>
+        <select id="age" name="age">
+            <option value="">Select your age group</option>
+            <option value="<21">&lt; 21 years old</option>
+            <option value="21-25">21 – 25 years old</option>
+            <option value="26-35">26 – 35 years old</option>
+            <option value="36-50">36 – 50 years old</option>
+            <option value="50+">50+ years old</option>
+        </select>
+        <br><br>
+
+        <label>Music Genre:</label><br>
+        <input type="checkbox" id="pop" name="music" value="Pop">
+        <label for="pop">Pop</label><br>
+        <input type="checkbox" id="hiphop" name="music" value="Hip-hop">
+        <label for="hiphop">Hip-hop</label><br>
+        <input type="checkbox" id="jazz" name="music" value="Jazz">
+        <label for="jazz">Jazz</label><br>
+        <input type="checkbox" id="rock" name="music" value="Rock">
+        <label for="rock">Rock</label><br>
+        <input type="checkbox" id="classical" name="music" value="Classical Music">
+        <label for="classical">Classical Music</label><br>
+        <input type="checkbox" id="country" name="music" value="Country">
+        <label for="country">Country</label><br><br>
+
+        <input type="submit" value="Submit">
+
+    </form>
+
+</body>
+</html>
