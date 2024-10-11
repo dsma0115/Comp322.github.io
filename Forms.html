@@ -47,13 +47,6 @@
                 return false;
             }
 
-            // Country Code validation (manually checking the length and alphabetic characters)
-            let countryCode = document.forms["userForm"]["country_code"].value;
-            if (!isValidCountryCode(countryCode)) {
-                alert("Invalid country code. Please enter exactly 3 letters.");
-                return false;
-            }
-
             return true;
         }
 
