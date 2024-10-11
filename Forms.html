@@ -3,8 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Validation</title>
-    <script src="Forms.js" defer></script> <!-- Link to the JavaScript file -->
+    <title>Form</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script src="forms.js" defer></script> <!-- Link to the external JavaScript file -->
 </head>
 <body>
 
@@ -30,6 +35,40 @@
         <label for="confirmPassword">Confirm Password:</label>
         <input type="password" id="confirmPassword" name="confirmPassword" required>
         <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="Other">
+        <label for="other">Other</label>
+        <br><br>
+
+        <label for="age">Age Group:</label>
+        <select id="age" name="age">
+            <option value="">Select your age group</option>
+            <option value="<21">&lt; 21 years old</option>
+            <option value="21-25">21 – 25 years old</option>
+            <option value="26-35">26 – 35 years old</option>
+            <option value="36-50">36 – 50 years old</option>
+            <option value="50+">50+ years old</option>
+        </select>
+        <br><br>
+
+        <label>Music Genre:</label><br>
+        <input type="checkbox" id="pop" name="music" value="Pop">
+        <label for="pop">Pop</label><br>
+        <input type="checkbox" id="hiphop" name="music" value="Hip-hop">
+        <label for="hiphop">Hip-hop</label><br>
+        <input type="checkbox" id="jazz" name="music" value="Jazz">
+        <label for="jazz">Jazz</label><br>
+        <input type="checkbox" id="rock" name="music" value="Rock">
+        <label for="rock">Rock</label><br>
+        <input type="checkbox" id="classical" name="music" value="Classical Music">
+        <label for="classical">Classical Music</label><br>
+        <input type="checkbox" id="country" name="music" value="Country">
+        <label for="country">Country</label><br><br>
 
         <input type="submit" value="Submit">
 
