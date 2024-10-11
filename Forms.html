@@ -3,101 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form</title>
-    <style>
-        .error {
-            color: red;
-        }
-    </style>
-    <script>
-        function validateForm() {
-            let username = document.forms["userForm"]["username"].value;
-            let email = document.forms["userForm"]["email"].value;
-            let phone = document.forms["userForm"]["phone"].value;
-            let password = document.forms["userForm"]["password"].value;
-            let confirmPassword = document.forms["userForm"]["confirmPassword"].value;
-
-            // Username validation (4-12 alphanumeric characters)
-            if (username.length < 4 || username.length > 12 || !isAlphanumeric(username)) {
-                alert("Username must be 4-12 characters long and only contain letters or numbers.");
-                return false;
-            }
-
-            // Email validation (simple check for "@" and ".com")
-            if (!email.includes("@") || !email.endsWith(".com")) {
-                alert("Please enter a valid email (must contain @ and end with .com).");
-                return false;
-            }
-
-            // Phone validation (simple format check: 123-456-7890)
-            if (!isValidPhoneNumber(phone)) {
-                alert("Phone number must be in the format 123-456-7890.");
-                return false;
-            }
-
-            // Password validation (at least 6 characters, must include a digit and a special character)
-            if (!isValidPassword(password)) {
-                alert("Password must be at least 6 characters long and include at least one digit and one special character.");
-                return false;
-            }
-
-            // Confirm password match
-            if (password !== confirmPassword) {
-                alert("Passwords do not match.");
-                return false;
-            }
-
-            return true;
-        }
-
-        // Helper function to check if a string is alphanumeric
-        function isAlphanumeric(str) {
-            for (let i = 0; i < str.length; i++) {
-                let charCode = str.charCodeAt(i);
-                if (!(charCode >= 48 && charCode <= 57) &&  // 0-9
-                    !(charCode >= 65 && charCode <= 90) &&  // A-Z
-                    !(charCode >= 97 && charCode <= 122)) { // a-z
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        // Helper function to validate phone number
-        function isValidPhoneNumber(phone) {
-            return phone.length === 12 && phone[3] === '-' && phone[7] === '-' &&
-                   !isNaN(phone.substring(0, 3)) && !isNaN(phone.substring(4, 7)) && !isNaN(phone.substring(8, 12));
-        }
-
-        // Helper function to validate password
-        function isValidPassword(password) {
-            let hasDigit = false;
-            let hasSpecialChar = false;
-            let specialChars = "!@#$%^&*()_+-=[]{}|;:'\",.<>?/";
-
-            if (password.length < 6) return false;
-
-            for (let i = 0; i < password.length; i++) {
-                let char = password.charAt(i);
-                if (!isNaN(char)) hasDigit = true;
-                if (specialChars.includes(char)) hasSpecialChar = true;
-            }
-
-            return hasDigit && hasSpecialChar;
-        }
-
-        // Helper function to validate country code (exactly 3 alphabetic characters)
-        function isValidCountryCode(code) {
-            if (code.length !== 3) return false;
-            for (let i = 0; i < code.length; i++) {
-                let charCode = code.charCodeAt(i);
-                if (!(charCode >= 65 && charCode <= 90) && !(charCode >= 97 && charCode <= 122)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-    </script>
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to a CSS file if needed -->
+    <script src="script.js" defer></script> <!-- Link to the JavaScript file -->
 </head>
 <body>
 
@@ -124,46 +32,7 @@
         <input type="password" id="confirmPassword" name="confirmPassword" required>
         <br><br>
 
-        <label for="country_code">Country Code:</label>
-        <input type="text" id="country_code" name="country_code" required>
-        <br><br>
-
-        <label>Gender:</label>
-        <input type="radio" id="male" name="gender" value="Male">
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="Female">
-        <label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="Other">
-        <label for="other">Other</label>
-        <br><br>
-
-        <label for="age">Age Group:</label>
-        <select id="age" name="age">
-            <option value="">Select your age group</option>
-            <option value="<21">&lt; 21 years old</option>
-            <option value="21-25">21 – 25 years old</option>
-            <option value="26-35">26 – 35 years old</option>
-            <option value="36-50">36 – 50 years old</option>
-            <option value="50+">50+ years old</option>
-        </select>
-        <br><br>
-
-        <label>Music Genre:</label><br>
-        <input type="checkbox" id="pop" name="music" value="Pop">
-        <label for="pop">Pop</label><br>
-        <input type="checkbox" id="hiphop" name="music" value="Hip-hop">
-        <label for="hiphop">Hip-hop</label><br>
-        <input type="checkbox" id="jazz" name="music" value="Jazz">
-        <label for="jazz">Jazz</label><br>
-        <input type="checkbox" id="rock" name="music" value="Rock">
-        <label for="rock">Rock</label><br>
-        <input type="checkbox" id="classical" name="music" value="Classical Music">
-        <label for="classical">Classical Music</label><br>
-        <input type="checkbox" id="country" name="music" value="Country">
-        <label for="country">Country</label><br><br>
-
         <input type="submit" value="Submit">
-    <p><a href="Forms.js">Fill out</a></p>
 
     </form>
 
