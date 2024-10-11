@@ -1,12 +1,3 @@
-document.getElementById("userForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission
-
-    if (validateForm()) {
-        alert("Form submitted successfully!"); // or proceed to submit form via AJAX or similar
-        // Here, you could also submit the form via AJAX or handle it as needed.
-    }
-});
-
 function validateForm() {
     let username = document.forms["userForm"]["username"].value;
     let email = document.forms["userForm"]["email"].value;
@@ -14,27 +5,27 @@ function validateForm() {
     let password = document.forms["userForm"]["password"].value;
     let confirmPassword = document.forms["userForm"]["confirmPassword"].value;
 
-    // Validate username: 4-12 characters, only letters and numbers
+    // Username validation (4-12 alphanumeric characters)
     if (username.length < 4 || username.length > 12 || !isAlphanumeric(username)) {
         alert("Username must be 4-12 characters long and only contain letters or numbers.");
         return false;
     }
 
-    // Validate email: must contain "@" and end with ".com"
+    // Email validation (simple check for "@" and ".com")
     if (!email.includes("@") || !email.endsWith(".com")) {
-        alert("Please enter a valid email (must contain '@' and end with '.com').");
+        alert("Please enter a valid email (must contain @ and end with .com).");
         return false;
     }
 
-    // Validate phone number: must follow format "123-456-7890"
+    // Phone validation (simple format check: 123-456-7890)
     if (!isValidPhoneNumber(phone)) {
         alert("Phone number must be in the format 123-456-7890.");
         return false;
     }
 
-    // Validate password: at least 6 characters, must contain a digit and special character
+    // Password validation (at least 6 characters, must include a digit and a special character)
     if (!isValidPassword(password)) {
-        alert("Password must be at least 6 characters long, contain at least one digit and one special character.");
+        alert("Password must be at least 6 characters long and include at least one digit and one special character.");
         return false;
     }
 
@@ -44,7 +35,7 @@ function validateForm() {
         return false;
     }
 
-    return true; // All validations passed
+    return true;
 }
 
 // Helper function to check if a string is alphanumeric
@@ -60,13 +51,13 @@ function isAlphanumeric(str) {
     return true;
 }
 
-// Helper function to validate phone number (format: 123-456-7890)
+// Helper function to validate phone number
 function isValidPhoneNumber(phone) {
     return phone.length === 12 && phone[3] === '-' && phone[7] === '-' &&
            !isNaN(phone.substring(0, 3)) && !isNaN(phone.substring(4, 7)) && !isNaN(phone.substring(8, 12));
 }
 
-// Helper function to validate password (at least one digit, one special character, min length of 6)
+// Helper function to validate password
 function isValidPassword(password) {
     let hasDigit = false;
     let hasSpecialChar = false;
