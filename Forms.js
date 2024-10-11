@@ -1,3 +1,12 @@
+document.getElementById("userForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    if (validateForm()) {
+        alert("Form submitted successfully!"); // or proceed to submit form via AJAX or similar
+        // Here, you could also submit the form via AJAX or handle it as needed.
+    }
+});
+
 function validateForm() {
     let username = document.forms["userForm"]["username"].value;
     let email = document.forms["userForm"]["email"].value;
